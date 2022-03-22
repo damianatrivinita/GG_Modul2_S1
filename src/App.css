@@ -1,5 +1,10 @@
 .App {
   text-align: center;
+  background-color: #f3c5a4;
+  color: #282c34;
+  font-family: sans-serif;
+  font-size: 14px;
+
 }
 
 .App-logo {
@@ -35,4 +40,25 @@
   to {
     transform: rotate(360deg);
   }
+}
+.album-img{
+  border-radius: 40px;
+  margin-top: 20px;
+}
+.btn{
+  background-color: #c03b07ea;
+  color: rgb(229, 226, 226);
+  border: 2px solid #110804;
+  border-radius: 14px;
+  width: 80px;
+  height: 30px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+.btn:hover {
+  background-color: #b9b7b5;
+}
+.btn a{
+  color: #fffafa;
+  font-size: 17px;
 }
