@@ -1,20 +1,20 @@
 import './App.css';
-import data from './ex_data';
+import data from "./ex_data";
+import Song from "./components/song";
 
 function App() {
   return (
     <div className="App">
-      <div>
-        <img className="album-img" src={data.album.images[0].url} width="180" height="180" />
-      </div>
-      <div>
-        <h2>{data.name}</h2>
-        <h3>{data.album.name}</h3>
-        <p>{data.artists[0].name}</p>
-	<button className="btn"><a href={data.album.artists[0].external_urls.spotify}>Select</a></button>
-      </div>
+      <Song
+        image={data.album.images[0].url}
+        title={data.name}
+        album={data.album.name}
+        artists={data.artists[0].name}        
+        url={data.album.artists[0].external_urls.spotify}
+      />
     </div>
   );
 }
 
 export default App;
+
