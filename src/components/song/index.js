@@ -11,5 +11,5 @@ const song = ({ image, title, album,url,artists }) => {
     </div>
   );
 };
-
+//export
 export default song;
