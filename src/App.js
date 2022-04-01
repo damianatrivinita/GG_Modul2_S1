@@ -1,8 +1,7 @@
 import './App.css';
-import data from "./ex_data";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import Song from "./components/song";
+import Song from "./components/Song";
 import url from "./spotify/dataspotify";
 
 function App() {
@@ -31,7 +30,7 @@ function App() {
   };
 
   return (
-    <div className="Playlist">
+    <div className="App">
       <div className="PlaylistMenu">
         <h2 className="Playlistname">
            Playlist
@@ -49,17 +48,11 @@ function App() {
             <input
               type="search"
               class="SearchInti"
-              placeholder="Search"
+              placeholder="Type Something"
               aria-label="Search"
               onChange={(e) => setSearchSong(e.target.value)}
             />
-            <button
-              class="btn-song"
-              type="button"
-              onClick={getSong}
-            >
-              Search
-            </button>
+            <button class="btn" type="button" onClick={getSong}>Search</button>
           </div>
         </div>
       </div>      
