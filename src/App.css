@@ -1,10 +1,8 @@
 .App {
-  text-align: center;
-  background-color: #f3c5a4;
+  text-align: center;  
   color: #282c34;
   font-family: sans-serif;
-  font-size: 14px;
-
+  font-size: 14px;  
 }
 
 .App-logo {
@@ -61,4 +59,95 @@
 .btn a{
   color: #fffafa;
   font-size: 17px;
+}
+
+.title {
+  font-size: 33px;
+  color: rgb(163, 48, 19);
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+  text-shadow: 1px 1px 2px black, 0 0 25px rgb(167, 111, 111),
+    0 0 5px rgb(214, 231, 62);
+}
+
+label {
+  font-size: 18px;
+  font-family: sans-serif;
+}
+
+textarea {
+  width: 325px;
+  height: 18px;
+  padding: 5px 2px;
+  border: 2px solid #ccc;
+  border-radius: 7px;
+  resize: none;
+  font-family: sans-serif;
+}
+input {
+  width: 325px;
+  height: 18px;
+  padding: 5px 2px;
+  font-family: sans-serif;
+  border: 2px solid #ccc;
+  border-radius: 7px;
+  margin-bottom: 26px;
+}
+
+.btn {
+  margin-top: 10px;
+  background-color: #d84b0a;
+  color: white;
+  border: none;
+  width: 260px;
+  height: 40px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.playlist {
+  background-color: #d2b48c;
+  border: 3px solid #d84b0a;
+  border-radius: 10px;
+  padding: 5px;
+  margin-top: 5px;
+  width: 280px;
+  height: 280px;
+}
+
+.song {
+  display: inline;
+}
+
+.playlist-title {
+  padding-bottom: 0px;
+}
+
+/* .song img {
+  width: 150px;
+  height: 150px;
+  border-radius: 5px;
+  border: 2px solid #804d36;
+}
+.content {
+  color: white;
+  margin: 0 5px;
+}
+.artist {
+  margin-top: -10px;
+}
+.album {
+  margin-top: -10px;
+}
+.btn-ply {
+  background-color: #d84b0a;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  width: 80px;
+  height: 20px;
+  cursor: pointer;
+} */
+.btn:hover,
+.btn-ply:hover {
+  background-color: #db8963;
 }

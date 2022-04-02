@@ -30,6 +30,23 @@ function App() {
   };
 
   return (
+    <div class="app">
+      <h1 class="title">Create Playlist</h1>      
+      <form action="#" id="form">
+        <label for="title">Title</label>
+        <br />
+        <input placeholder="Add title" type="text" name="title" id="title" />
+        <br /><br />
+        <label for="description">Description</label>
+        <br />
+        <textarea
+          placeholder="Add description"
+          name="description"
+          id="description"
+        ></textarea>
+        <br /><br />              
+        <input class="btn" type="submit" value="Create Playlist" />
+     </form>
     <div className="App">
       <div className="PlaylistMenu">
         <h2 className="Playlistname">
@@ -71,6 +88,7 @@ function App() {
           );
         })}
       </div>
+    </div>
     </div>
   );
 }
