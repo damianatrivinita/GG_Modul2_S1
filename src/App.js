@@ -1,20 +1,61 @@
 import './App.css';
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { useSelector, useDispatch } from 'react-redux';
+import { setToken } from './redux/tokenSlice';
 import Song from "./components/Song";
 import url from "./spotify/dataspotify";
 
+
 function App() {
-  const [token, setToken] = useState("");
+  //const [token, setToken] = useState("");
   const [searchSong, setSearchSong] = useState("");
   const [data, setdata] = useState([]);
+  const [selectedSongs, setSelectedSongs] = useState([]);
+  const [combineSongs, setCombineSongs] = useState([]);
+  const token = useSelector((state) => state.token);
+  const dispatch = useDispatch();
+  const [accToken, setAccToken] = useState('');
 
   useEffect(() => {
     const queryString = new URL(window.location.href.replace("#", "?"))
       .searchParams;
     const accessToken = queryString.get("access_token");
-    setToken(accessToken);
-  }, []);
+    setAccToken(accessToken);
+    if (accessToken !== null) {
+      setAccToken(accessToken);
+      setIsLogin(accessToken !== null);
+
+      const setUserProfile = async () => {
+        try {
+          const requestOptions = {
+            headers: {
+              'Authorization': 'Bearer ' + accessToken,
+              'Content-Type': 'application/json',
+            },
+          };
+          console.log(requestOptions);
+
+          const response = await fetch(`https://api.spotify.com/v1/me`, requestOptions).then(data => data.json());
+          console.log(response);
+          setUser(response);
+        } catch(err) {
+          alert(err)
+        }
+      }
+      dispatch(setToken(accessToken));
+      setUserProfile();
+    }
+  }, [dispatch]);
+
+  useEffect(() => {
+    const handleCombineTracks = data.map((song) => ({
+      ...song,
+      isSelected: selectedSongs.find((data) => data === song.uri),
+    }));
+    setCombineSongs(handleCombineTracks);
+    console.log(handleCombineTracks));
+  }, [data, selectedSongs]);
 
   const getSong = async () => {
     await axios
@@ -27,6 +68,13 @@ function App() {
       .catch((error) => {
         console.log(error);
       });
+  };
+
+  const handleSelect = (uri) => {
+    const selected = selectedSongs.find((song) => song === uri);
+    selected
+      ? setSelectedSongs(selectedSongs.filter((song) => song !== uri))
+      : setSelectedSongs([...selectedSongs, uri]);
   };
 
   return (
@@ -64,7 +112,7 @@ function App() {
           <div class="SearchDetail">
             <input
               type="search"
-              class="SearchInti"
+              class="search"
               placeholder="Type Something"
               aria-label="Search"
               onChange={(e) => setSearchSong(e.target.value)}
@@ -74,16 +122,19 @@ function App() {
         </div>
       </div>      
       <div className="App">      
-        {data.map((song) => {
-          const { id, name, artists, album } = song;
+        {combineSongs.map((song) => {
+          const { name, artists, album, uri, isSelected } = song;
           return (
             <Song
-              key={id}
+              key={uri}
               title={name}
               image={album.images[0]?.url}
               album={album.name}
               artists={artists[0]?.name}
               url={album.artists[0]?.external_urls.spotify}
+              uri={uri}
+              selectState={handleSelect}
+              isSelected={isSelected}
             />
           );
         })}
@@ -95,4 +146,3 @@ function App() {
 
 //export
 export default App;
-
