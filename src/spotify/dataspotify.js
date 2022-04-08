@@ -1,5 +1,5 @@
 var client_id = process.env.REACT_APP_SPOTIFY_CLIENT_ID;
-var redirect_uri = "http://localhost:3000/callback";
+var redirect_uri = "http://localhost:3000/";
 
 var state = "damian_homework3";
 
@@ -12,6 +12,5 @@ url += "&client_id=" + encodeURIComponent(client_id);
 url += "&scope=" + encodeURIComponent(scope);
 url += "&redirect_uri=" + encodeURIComponent(redirect_uri);
 url += "&state=" + encodeURIComponent(state);
-
 
 export default url;
