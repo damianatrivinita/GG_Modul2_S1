@@ -1,4 +1,3 @@
-import Button from "./button";
 const Song = ({ image, title, album,artists}) => {
   return (
     <div className="App">      
