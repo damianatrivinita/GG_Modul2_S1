@@ -7,7 +7,7 @@ import {
 } from "react-router-dom";
 import CreatePlaylist from "../CreatePlaylist";
 import Login from "../Login";
-
+import Search from "../../components/Search";
 function Home() {
   const token = useSelector((state) => state.token.value);
   return (
@@ -25,7 +25,9 @@ function Home() {
           </Route>
         </Switch>
       </Router>
+      < Search />
     </div>
+    
   );
 }
- export default Home;
+export default Home;
