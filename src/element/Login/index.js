@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { setToken } from "../../redux/tokenSlice";
 import url from "../../spotify/dataspotify";
+import Button from '@mui/material/Button';
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -19,13 +20,8 @@ const Login = () => {
   };
 
   return (
-    <div>
-      <a
-        href={url}
-        className="login"
-      >
-        Login
-      </a>
+    <div className="login">
+      <Button className="login" variant="contained" href={url}>Login</Button>
     </div>
   );
 };

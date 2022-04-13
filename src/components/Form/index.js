@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { createPlaylist, pushSongs } from "../../axios/axios.service";
+import Button from '@mui/material/Button';
 
 const Form = ({ userId, songUris }) => {
   const [playlistId, setPlaylistId] = useState("");
@@ -32,7 +33,7 @@ const Form = ({ userId, songUris }) => {
           console.log(error);
         });
       setForm({ title: "", description: "" });
-      alert("Successfully created playlist");
+      alert("Successfully");
     } else {
       alert("Title must be more than 10 characters");
     }
@@ -50,42 +51,36 @@ const Form = ({ userId, songUris }) => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <div className="judul">
-        <div className="judul">
-          <div className="judul">
-            <label htmlFor="title" className="judul">
+      <div className="form-create">
+        <div >
+          <div >
+            <label htmlFor="title" className="form-title">
               Title
             </label>
             <input
               type="text"
-              className="judul3"
-              placeholder="Title"
+              className="form-title"
+              placeholder="type title"
               name="title"
               value={form.title}
               onChange={handleForm}
             />
           </div>
-          <div className="keterangan">
-            <label htmlFor="title" className="keterangan">
+          <div className="description">
+            <label htmlFor="title" className="form-desc">
               Description
             </label>
             <input
               type="text"
-              className="keterangan3"
-              placeholder="Description"
+              className="form-desc"
+              placeholder="type description"
               name="description"
-              value={form.des}
+              value={form.description}
               onChange={handleForm}
             />
           </div>
-          <div>
-            <button
-              id="submit"
-              type="submit"
-              className="btn-create"
-            >
-              Create
-            </button>
+          <div className="form-btn">
+            <Button variant="contained" type="submit">Create</Button>
           </div>
         </div>
       </div>

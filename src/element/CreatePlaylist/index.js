@@ -55,10 +55,10 @@ const CreatePlaylist = () => {
   };
   return (
     <div>
-      <div className="PCreate">
+      <div className="create-playlist">
       <h1 class="title">Create Playlist</h1>
       </div>
-      <Search getSong={getSong} setSearchSong={setSearchSong} />
+      {/* <Search getSong={getSong} setSearchSong={setSearchSong} /> */}
       <Form token={token} userId={userId} songUris={selectedSongs} />
       
       <div className="App">

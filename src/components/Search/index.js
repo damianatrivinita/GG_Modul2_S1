@@ -5,6 +5,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { setToken } from './../../redux/tokenSlice';
 import Song from "./../../components/Song";
 import React from "react";
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
 
 function Search() {
   //const [token, setToken] = useState("");
@@ -75,23 +77,13 @@ function Search() {
   };
 
   return (
-    <div class="Pencarian">
-      <div class="Searching">
-        <div class="SearchDetail">
-          <div class="SearchMenu">
-            <input
-              type="search"
-              class="SearchValue"
-              placeholder="Input Song"
-              aria-label="Search"
-              onChange={(e) => setSearchSong(e.target.value)}
-            />
-            <button class="btn-2" type="button" onClick={getSong}>
-              Search
-            </button>
-          </div>
-        </div>
-      </div>      
+    <div class="App">      
+      <div class="searching">
+        {/* <input type="search" class="SearchValue" placeholder="Input Song" aria-label="Search" onChange={(e) => setSearchSong(e.target.value)} /> */}
+            <TextField id="outlined-basic" label="Type artists,songs" variant="outlined" onChange={(e) => setSearchSong(e.target.value)}/>
+            <Button variant="contained" onClick={getSong}>Search</Button>
+        {/* <button class="btn-2" type="button" onClick={getSong}> Search </button> */}
+      </div>              
       <div className="App"> 
         <div className='album-card'>  
         {combineSongs.map((song) => {
@@ -116,5 +108,5 @@ function Search() {
   );
 }
 
-//export
+
 export default Search;
