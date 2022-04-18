@@ -1,31 +1,61 @@
 import { useEffect, useState } from "react";
-import { createPlaylist, pushSongs } from "../../axios/axios.service";
+import { retrieveUserId, createPlaylist, pushSongs } from "../../axios/axios.service";
 import Button from '@mui/material/Button';
+import { songUrisInterface } from "../../extype/interfaces";
+import { useSelector } from "react-redux";
 
-const Form = ({ userId, songUris }) => {
+const Form = ({ songUris }:songUrisInterface) => {
+  const token = useSelector((state: any) => state.token.value);
   const [playlistId, setPlaylistId] = useState("");
+  const [userId, setUserId] = useState("");
   const [form, setForm] = useState({
     title: "",
     description: "",
   });
 
 
-  useEffect(() => {
+  // useEffect(() => {
+  //   if (playlistId) {
+  //     addSongs();
+  //   }
+  // }, [playlistId]);
+
+  useEffect(() => {    
+    const getUserId = () => {
+      retrieveUserId(token)
+        .then((response) => {
+          setUserId(response.data.id);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    };
+
+    const addSongs =  () => {
+      pushSongs(playlistId, songUris, token)
+        .then((response) => {
+          console.log(response);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    };
     if (playlistId) {
       addSongs();
     }
-  }, [playlistId]);
+    getUserId();
+  }, [playlistId, songUris, token]);
 
-  const handleForm = (e) => {
+  const handleForm = (e: any) => {
     const { name, value } = e.target;
     setForm({ ...form, [name]: value });
   };
 
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e: any) => {
     e.preventDefault();
     if (form.title.length > 10) {
-      await createPlaylist(userId, form.title, form.description)
+      createPlaylist(userId, form.title, form.description, token)
         .then((response) => {
           setPlaylistId(response.data.id);
         })
@@ -33,21 +63,12 @@ const Form = ({ userId, songUris }) => {
           console.log(error);
         });
       setForm({ title: "", description: "" });
-      alert("Successfully");
+      alert("Create Playlist Successfully");
     } else {
-      alert("Title must be more than 10 characters");
+      alert("Type up to 10 keywords of the Title");
     }
   };
 
-  const addSongs = async () => {
-    pushSongs(playlistId, songUris)
-      .then((response) => {
-        console.log(response);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
 
   return (
     <form onSubmit={handleSubmit}>

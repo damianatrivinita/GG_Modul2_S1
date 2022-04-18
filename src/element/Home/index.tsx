@@ -8,8 +8,9 @@ import {
 import CreatePlaylist from "../CreatePlaylist";
 import Login from "../Login";
 import Search from "../../components/Search";
+
 function Home() {
-  const token = useSelector((state) => state.token.value);
+  const token = useSelector((state: any) => state.token.value);
   return (
     <div className="App">
       <Router>
@@ -18,7 +19,7 @@ function Home() {
             {!token ? <Login /> : <Redirect to="/create-playlist" />}
           </Route>
           <Route path="/create-playlist">
-            <CreatePlaylist />
+            {!token ? <Redirect exact to="/" /> : <CreatePlaylist />}
           </Route>
           <Route path="*">
             <h3>404</h3>
