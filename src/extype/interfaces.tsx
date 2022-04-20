@@ -41,5 +41,7 @@ export interface songInterface {
   selectState: (uri: string) => void;
   isSelected: boolean;
   url: string;  
+  name: string;
+  class: string;
 }
 

@@ -1,6 +1,6 @@
 import { songInterface } from "../../extype/interfaces";
 
-const Song = ({ uri, image, title, album, artists, selectState, isSelected}: songInterface) => {
+const songplaylist = ({ uri, image, title, album, artists, selectState, isSelected}: songInterface) => {
   return (
     <div className="App">           
         <img className="album-img" src={image} alt="Album" height="180" width="180" />
@@ -21,4 +21,4 @@ const Song = ({ uri, image, title, album, artists, selectState, isSelected}: son
 };
 
 //export
-export default Song;
+export default songplaylist;
