@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { render} from "@testing-library/react";
 import Song from ".";
 
 describe("Search", () => {
@@ -19,7 +19,5 @@ describe("Search", () => {
         isSelected={false}
       />
     );
-    const checkData = screen.findByText("Lover Boy");
-    expect(checkData).toBeInTheDocument;
   });
 });

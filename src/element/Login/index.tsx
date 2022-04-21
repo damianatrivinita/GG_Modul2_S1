@@ -21,7 +21,7 @@ const Login = () => {
 
   return (
     <div className="login">
-      <Button className="login" variant="contained" href={url}>Login</Button>
+      <Button variant="contained" href={url}>Login</Button>
     </div>
   );
 };

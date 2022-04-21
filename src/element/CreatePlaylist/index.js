@@ -1,16 +1,15 @@
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import Song from "../../components/Song";
-import Search from "../../components/Search";
-import { retrieveSongs, retrieveUserId } from "../../axios/axios.service";
+import { retrieveUserId } from "../../axios/axios.service";
 import Form from "../../components/Form";
 import '../../App.css';
+
 const CreatePlaylist = () => {
   const token = useSelector((state) => state.token.value);
-
   const [userId, setUserId] = useState("");
-  const [searchSong, setSearchSong] = useState("");
-  const [songData, setSongData] = useState([]);
+  // const [searchSong] = useState("");
+  const [songData] = useState([]);
   const [selectedSongs, setSelectedSongs] = useState([]);
   const [combineSongs, setCombineSongs] = useState([]);
 
@@ -26,17 +25,7 @@ const CreatePlaylist = () => {
     }));
     setCombineSongs(handleCombineTracks);
   }, [songData, selectedSongs]);
-
-  const getSong = () => {
-    retrieveSongs(searchSong)
-      .then((response) => {
-        setSongData(response.data.tracks.items);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
-
+ 
   const getUserId = () => {
     retrieveUserId()
       .then((response) => {

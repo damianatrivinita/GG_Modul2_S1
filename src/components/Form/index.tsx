@@ -13,13 +13,6 @@ const Form = ({ songUris }:songUrisInterface) => {
     description: "",
   });
 
-
-  // useEffect(() => {
-  //   if (playlistId) {
-  //     addSongs();
-  //   }
-  // }, [playlistId]);
-
   useEffect(() => {    
     const getUserId = () => {
       retrieveUserId(token)

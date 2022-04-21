@@ -8,10 +8,6 @@ export interface songDataInterface {
   name: string;
   artists: [{ name: string }];
   isSelected: boolean;
-  // url: {
-  //   artist: [{external_urls: string}];
-  // };
-
 }
 
 export interface selectedInterface {

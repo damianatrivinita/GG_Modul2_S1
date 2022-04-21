@@ -20,5 +20,4 @@ const songplaylist = ({ uri, image, title, album, artists, selectState, isSelect
   );
 };
 
-//export
 export default songplaylist;

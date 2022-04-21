@@ -1,20 +1,17 @@
 import './../../App.css';
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { setToken } from '../../redux/tokenSlice';
 import Song from "../Song";
-import React from "react";
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 
 function Search() {
-  //const [token, setToken] = useState("");
   const [searchSong, setSearchSong] = useState("");
   const [data, setdata] = useState([]);
   const [selectedSongs, setSelectedSongs] = useState([]);
-  const [combineSongs, setCombineSongs] = useState([]);
-  const token = useSelector((state) => state.token);
+  const [combineSongs, setCombineSongs] = useState([]);  
   const dispatch = useDispatch();
   const [accToken, setAccToken] = useState('');
 
