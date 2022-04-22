@@ -18,6 +18,11 @@ To start this Spotify App, you need to login first. After that the user can do C
 * Testing
 * Vercel  
 
+## Add other features (bonus)
+
+* Log out
+* Photo Profile (I dont have picture so i use avatar "D")
+
 ## Using .env format contain with:
 
 `REACT_APP_SPOTIFY_CLIENT_ID`

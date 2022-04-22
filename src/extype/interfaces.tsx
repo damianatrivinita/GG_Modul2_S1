@@ -2,8 +2,8 @@ export interface songDataInterface {
   uri: string;
   album: {
     images: [{ url: string }];
-    name: string;
-    artist: string;    
+    // name: string;
+    // artist: string;    
   };
   name: string;
   artists: [{ name: string }];

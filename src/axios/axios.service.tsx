@@ -29,6 +29,14 @@ const retrieveUserId = (token: string) => {
   });
 };
 
+const retrieveTopSongs = (token: string) => {
+  return instance.get(`me/top/tracks`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+};
+
 const createPlaylist = (userId: string, title: string, description: string, token: string) => {
   return instance.post(
     `/users/${userId}/playlists`,
@@ -60,4 +68,6 @@ const pushSongs = (playlistId: string, songUris:selectedInterface["uri"][], toke
   );
 };
 
-export { retrieveSongs, retrieveUserId, createPlaylist, pushSongs };
+
+
+export { retrieveSongs, retrieveUserId, createPlaylist, pushSongs, retrieveTopSongs };

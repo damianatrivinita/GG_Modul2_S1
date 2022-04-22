@@ -4,6 +4,7 @@ import Song from "../../components/Song";
 import { retrieveUserId } from "../../axios/axios.service";
 import Form from "../../components/Form";
 import '../../App.css';
+import Navbar from "../../element/Navbar";
 
 const CreatePlaylist = () => {
   const token = useSelector((state) => state.token.value);
@@ -44,6 +45,7 @@ const CreatePlaylist = () => {
   };
   return (
     <div>
+    <Navbar />
       <div className="create-playlist">
       <h1 class="title">Create Playlist</h1>
       </div>
