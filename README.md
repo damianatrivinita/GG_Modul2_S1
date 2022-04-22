@@ -43,17 +43,23 @@ git clone `https://github.com/damianatrivinita/GG_Modul2_S1`
 
 Use this for instal dependencies
 
-``` npm install
+```bash
+ npm install
+```
 
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
-``` npm test
+```bash
+ npm test
+```
 
 Builds the app for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
-``` npm run build
+```bash
+ npm run build
+```
 
 
 The build is minified and the filenames include the hashes.\
