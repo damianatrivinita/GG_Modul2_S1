@@ -78,7 +78,7 @@ function Search() {
       <div class="searching">
         {/* <input type="search" class="SearchValue" placeholder="Input Song" aria-label="Search" onChange={(e) => setSearchSong(e.target.value)} /> */}
             <TextField id="outlined-basic" label="Type artists,songs" variant="outlined" onChange={(e) => setSearchSong(e.target.value)}/>
-            <Button variant="contained" href={getSong}>Search</Button>
+            <Button variant="contained" onClick={getSong}>Search</Button>
         {/* <button class="btn-2" type="button" onClick={getSong}> Search </button> */}
       </div>              
       <div className="App"> 
