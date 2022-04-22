@@ -51,10 +51,6 @@ Use this for instal dependencies
  npm install
 ```
 
-```bash
- npm install
-```
-
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
