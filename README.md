@@ -1,6 +1,6 @@
 # Welcome to damiangengigih Spotify Playlist App
 
-This project was made for #GenerasiGIGIH Final Project. 
+This project was made for #GenerasiGIGIH Final Project that hosted on Vercel. 
 
 ## Features
 ## Short Description
@@ -21,16 +21,20 @@ To start this Spotify App, you need to login first. After that the user can do C
 ## Using .env format contain with:
 
 `REACT_APP_SPOTIFY_CLIENT_ID`
+
 `REACT_APP_SPOTIFY_CLIENT_SECRET`
 
 `REACT_APP_AUTHORIZE_URL`
+
 `REACT_APP_REDIRECT_URI`
 
 ## I used this to run on local
 
 `cd GG_Modul2_S1`
 
-`npm start`
+```bash
+ npm start
+```
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
@@ -42,6 +46,10 @@ git clone `https://github.com/damianatrivinita/GG_Modul2_S1`
 ## 
 
 Use this for instal dependencies
+
+```bash
+ npm install
+```
 
 ```bash
  npm install
